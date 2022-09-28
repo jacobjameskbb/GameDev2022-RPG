@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts/Menu Manager.gd" type="Script" id=1]
+[ext_resource path="res://scripts/World Manager.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Main.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Dialogue Manager.gd" type="Script" id=4]
+[ext_resource path="res://scences/player/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scences/npc.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scences/menu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scences/door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scences/test.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scences/dialogue.tscn" type="PackedScene" id=10]
+
+[node name="Main" type="Node"]
+script = ExtResource( 3 )
+
+[node name="World Manager" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="npc" parent="World Manager" instance=ExtResource( 6 )]
+position = Vector2( 965, 239 )
+
+[node name="player" parent="World Manager" instance=ExtResource( 5 )]
+position = Vector2( 518, 273 )
+
+[node name="door" parent="World Manager" instance=ExtResource( 8 )]
+position = Vector2( 1282, 367 )
+
+[node name="Combat Manager" type="Node2D" parent="."]
+
+[node name="Menu Manager" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Control" parent="Menu Manager" instance=ExtResource( 7 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = -2104.0
+margin_right = 1040.0
+margin_bottom = -1504.0
+
+[node name="Dialogue Manager" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -96.0
+margin_top = 460.0
+margin_right = -96.0
+margin_bottom = 373.0
+script = ExtResource( 4 )
+
+[node name="TextTween" type="Tween" parent="Dialogue Manager"]
+
+[node name="ColorRect" type="ColorRect" parent="Dialogue Manager"]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = -382.5
+margin_right = 100.0
+margin_bottom = -382.5
+color = Color( 0.239216, 0.12549, 0.12549, 1 )
+
+[node name="Area2D" parent="." instance=ExtResource( 9 )]
+position = Vector2( 725, -243 )
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 10 )]
