@@ -11,12 +11,11 @@ extends Control
 # warning-ignore:unused_argument
 #func _process(delta):
 	#pass
+	
+onready var textbox = get_node("DialogueBox/Textbox/Text")
+var message_queue = []
 
-# Main function for dialogue, message should be a string
-#func send_message(message):
-	#print(message)
-	# Display textbox
+func display_message(message): # message is a string
+	textbox.text = message
+	#textbox.percent_visible = 0
 	
-	# Type message (using tween)
-	
-	# wait for input from user to continue 

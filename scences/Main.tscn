@@ -9,7 +9,7 @@
 [ext_resource path="res://scences/menu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scences/door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scences/test.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scences/dialogue.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/pirate.tres" type="DynamicFont" id=10]
 
 [node name="Main" type="Node"]
 script = ExtResource( 3 )
@@ -44,26 +44,46 @@ margin_bottom = -1504.0
 [node name="Dialogue Manager" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -96.0
-margin_top = 460.0
-margin_right = -96.0
-margin_bottom = 373.0
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextTween" type="Tween" parent="Dialogue Manager"]
 
-[node name="ColorRect" type="ColorRect" parent="Dialogue Manager"]
-visible = false
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 100.0
-margin_top = -382.5
-margin_right = 100.0
-margin_bottom = -382.5
+[node name="DialogueBox" type="ColorRect" parent="Dialogue Manager"]
+anchor_left = 0.15
+anchor_top = 0.95
+anchor_right = 0.85
+anchor_bottom = 0.95
+margin_top = -266.0
 color = Color( 0.239216, 0.12549, 0.12549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Textbox" type="ColorRect" parent="Dialogue Manager/DialogueBox"]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.9
+anchor_bottom = 0.8
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0.329412, 0.207843, 0.0980392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="Dialogue Manager/DialogueBox/Textbox"]
+anchor_left = 0.025
+anchor_top = 0.025
+anchor_right = 0.975
+anchor_bottom = 0.975
+custom_fonts/normal_font = ExtResource( 10 )
+text = "Ahoy there sailor! The Textbox is here!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Area2D" parent="." instance=ExtResource( 9 )]
 position = Vector2( 725, -243 )
-
-[node name="CanvasLayer" parent="." instance=ExtResource( 10 )]
