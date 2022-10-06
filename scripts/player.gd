@@ -40,4 +40,3 @@ func kill():
 	get_tree().reload_current_scene() 
 
 
-

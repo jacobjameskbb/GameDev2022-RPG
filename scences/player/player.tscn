@@ -27,8 +27,8 @@ shape = SubResource( 1 )
 [node name="sword" parent="." instance=ExtResource( 3 )]
 position = Vector2( 44, 0 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2( -0.5, 0 )
 shape = SubResource( 2 )
