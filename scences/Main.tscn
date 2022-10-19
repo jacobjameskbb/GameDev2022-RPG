@@ -20,7 +20,7 @@ script = ExtResource( 3 )
 script = ExtResource( 2 )
 
 [node name="main player" parent="World Manager" instance=ExtResource( 5 )]
-position = Vector2( 518, 273 )
+position = Vector2( 516, 265 )
 
 [node name="npc" parent="World Manager" instance=ExtResource( 6 )]
 position = Vector2( 965, 239 )
@@ -30,6 +30,8 @@ position = Vector2( 965, 239 )
 [node name="door" parent="World Manager" instance=ExtResource( 8 )]
 position = Vector2( 1282, 367 )
 
+[node name="enemy" parent="World Manager" instance=ExtResource( 12 )]
+
 [node name="Combat Manager" type="Node2D" parent="."]
 visible = false
 
@@ -37,7 +39,7 @@ visible = false
 
 [node name="map template" parent="Combat Manager" instance=ExtResource( 11 )]
 
-[node name="enemy" parent="Combat Manager" instance=ExtResource( 12 )]
+[node name="enemy2" parent="Combat Manager" instance=ExtResource( 12 )]
 
 [node name="Menu Manager" type="Node2D" parent="."]
 script = ExtResource( 1 )

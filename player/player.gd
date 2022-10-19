@@ -39,4 +39,3 @@ func _physics_process(_delta):
 func kill():
 	get_tree().reload_current_scene() 
 
-
