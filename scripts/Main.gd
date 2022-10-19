@@ -11,4 +11,5 @@ extends Node
 	#savefile.save_data() 
 
 func _process(_delta):
-	pass
+	$"Menu Manager".position =$"World Manager/main player/Camera2D".position
+	$"Dialogue Manager".rect_position =$"World Manager/main player/Camera2D".position

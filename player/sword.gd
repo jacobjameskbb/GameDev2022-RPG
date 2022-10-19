@@ -7,4 +7,7 @@ func _process(_delta):
 		_animated_sprite.play("sword")
 	else:
 		_animated_sprite.stop()
+		
+	if Input.is_action_just_released("lmb"):
+		_animated_sprite.frame = 0
 

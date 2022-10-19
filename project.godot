@@ -20,7 +20,7 @@ Save="*res://scripts/save.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/BitmapTextureFont/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [input]
 

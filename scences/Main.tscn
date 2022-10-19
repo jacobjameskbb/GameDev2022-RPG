@@ -1,16 +1,17 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://scripts/Menu Manager.gd" type="Script" id=1]
+[ext_resource path="res://UI, dialogue/Menu Manager.gd" type="Script" id=1]
 [ext_resource path="res://scripts/World Manager.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=3]
-[ext_resource path="res://scripts/Dialogue Manager.gd" type="Script" id=4]
-[ext_resource path="res://scences/player/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI, dialogue/Dialogue Manager.gd" type="Script" id=4]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scences/npc.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scences/menu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI, dialogue/menu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scences/door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scences/testmap.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/pirate.tres" type="DynamicFont" id=10]
-[ext_resource path="res://map template.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/Fonts/pirate.tres" type="DynamicFont" id=10]
+[ext_resource path="res://scences/map template.tscn" type="PackedScene" id=11]
+[ext_resource path="res://enemies/enemy.tscn" type="PackedScene" id=12]
 
 [node name="Main" type="Node"]
 script = ExtResource( 3 )
@@ -18,7 +19,7 @@ script = ExtResource( 3 )
 [node name="World Manager" type="Node2D" parent="."]
 script = ExtResource( 2 )
 
-[node name="player" parent="World Manager" instance=ExtResource( 5 )]
+[node name="main player" parent="World Manager" instance=ExtResource( 5 )]
 position = Vector2( 518, 273 )
 
 [node name="npc" parent="World Manager" instance=ExtResource( 6 )]
@@ -36,11 +37,12 @@ visible = false
 
 [node name="map template" parent="Combat Manager" instance=ExtResource( 11 )]
 
+[node name="enemy" parent="Combat Manager" instance=ExtResource( 12 )]
+
 [node name="Menu Manager" type="Node2D" parent="."]
 script = ExtResource( 1 )
 
 [node name="Menu" parent="Menu Manager" instance=ExtResource( 7 )]
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -66,8 +68,10 @@ anchor_left = 0.15
 anchor_top = 0.95
 anchor_right = 0.85
 anchor_bottom = 0.95
-margin_left = -3.05176e-05
-margin_top = -266.0
+margin_left = 1660.4
+margin_top = 667.0
+margin_right = 1660.4
+margin_bottom = 933.0
 color = Color( 0.239216, 0.12549, 0.12549, 1 )
 
 [node name="Textbox" type="ColorRect" parent="Dialogue Manager/DialogueBox"]
@@ -75,8 +79,10 @@ anchor_left = 0.05
 anchor_top = 0.05
 anchor_right = 0.9
 anchor_bottom = 0.8
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = -17.84
+margin_top = -5.3
+margin_right = 22.1601
+margin_bottom = 34.7
 color = Color( 0.329412, 0.207843, 0.0980392, 1 )
 
 [node name="Text" type="RichTextLabel" parent="Dialogue Manager/DialogueBox"]
@@ -84,9 +90,9 @@ anchor_left = 0.025
 anchor_top = 0.025
 anchor_right = 0.975
 anchor_bottom = 0.975
-margin_left = 34.152
-margin_top = 12.6375
-margin_right = 34.152
-margin_bottom = 12.6375
+margin_left = -3.92
+margin_top = 4.35
+margin_right = -3.91998
+margin_bottom = 4.34995
 custom_fonts/normal_font = ExtResource( 10 )
 text = "Ahoy there sailor! The Textbox is here!"
