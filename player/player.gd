@@ -25,9 +25,6 @@ func read_input():
 	velocity = velocity.normalized()
 	velocity = move_and_slide(velocity * 200)
 	#look_at(get_global_mouse_position())
-		
-	if Input.is_action_just_pressed("esc"):
-		get_tree().change_scene("res://scences/menu.tscn")
 
 #func _on_Spell_body_entered(body):
 	#if "Enemy" in body.name:
