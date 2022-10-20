@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://UI, dialogue/Menu Manager.gd" type="Script" id=1]
+[ext_resource path="res://dialogue UI/Menu Manager.gd" type="Script" id=1]
 [ext_resource path="res://scripts/World Manager.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=3]
-[ext_resource path="res://UI, dialogue/Dialogue Manager.gd" type="Script" id=4]
+[ext_resource path="res://dialogue UI/Dialogue Manager.gd" type="Script" id=4]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scences/npc.tscn" type="PackedScene" id=6]
-[ext_resource path="res://UI, dialogue/menu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://dialogue UI/menu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scences/door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scences/testmap.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/Fonts/pirate.tres" type="DynamicFont" id=10]
@@ -20,17 +20,19 @@ script = ExtResource( 3 )
 script = ExtResource( 2 )
 
 [node name="main player" parent="World Manager" instance=ExtResource( 5 )]
-position = Vector2( 516, 265 )
+position = Vector2( 255, 161 )
 
 [node name="npc" parent="World Manager" instance=ExtResource( 6 )]
-position = Vector2( 965, 239 )
+position = Vector2( 980, -487 )
 
 [node name="RigidBody2D" parent="World Manager/npc" instance=ExtResource( 6 )]
+position = Vector2( -1311, -2 )
 
 [node name="door" parent="World Manager" instance=ExtResource( 8 )]
-position = Vector2( 1282, 367 )
+position = Vector2( 877, 200 )
 
 [node name="enemy" parent="World Manager" instance=ExtResource( 12 )]
+position = Vector2( -106, 158 )
 
 [node name="Combat Manager" type="Node2D" parent="."]
 visible = false
@@ -92,9 +94,12 @@ anchor_left = 0.025
 anchor_top = 0.025
 anchor_right = 0.975
 anchor_bottom = 0.975
-margin_left = -3.92
-margin_top = 4.35
-margin_right = -3.91998
-margin_bottom = 4.34995
+margin_left = -19.92
+margin_top = 6.35
+margin_right = -19.92
+margin_bottom = 6.34995
 custom_fonts/normal_font = ExtResource( 10 )
 text = "Ahoy there sailor! The Textbox is here!"
+
+[node name="map template" parent="." instance=ExtResource( 11 )]
+position = Vector2( 2, 2 )

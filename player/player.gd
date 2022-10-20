@@ -4,7 +4,9 @@ extends KinematicBody2D
 var velocity : Vector2 = Vector2()
 var direction : Vector2 = Vector2()
 var motionspeed = 500 
-var bullet_speed = 100
+var gravity = 10
+
+
 
 func read_input():
 	velocity = Vector2()
@@ -27,7 +29,7 @@ func read_input():
 	#look_at(get_global_mouse_position())
 		
 	if Input.is_action_just_pressed("esc"):
-		get_tree().change_scene("res://scences/menu.tscn")
+		get_tree().change_scene("res://dialogue UI/menu.tscn/menu.tscn")
 
 #func _on_Spell_body_entered(body):
 	#if "Enemy" in body.name:
