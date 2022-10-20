@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI, dialogue/Menu Manager.gd" type="Script" id=1]
 [ext_resource path="res://scripts/World Manager.gd" type="Script" id=2]
@@ -8,10 +8,7 @@
 [ext_resource path="res://scripts/Combat Manager.gd" type="Script" id=6]
 [ext_resource path="res://UI, dialogue/menu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scences/world1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scences/testmap.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/Fonts/pirate.tres" type="DynamicFont" id=10]
-[ext_resource path="res://scences/map template.tscn" type="PackedScene" id=11]
-[ext_resource path="res://enemies/enemy.tscn" type="PackedScene" id=12]
 
 [node name="Main" type="Node"]
 script = ExtResource( 3 )
@@ -32,12 +29,6 @@ position = Vector2( 518, 273 )
 [node name="Combat Manager" type="Node2D" parent="."]
 visible = false
 script = ExtResource( 6 )
-
-[node name="test map" parent="Combat Manager" instance=ExtResource( 9 )]
-
-[node name="map template" parent="Combat Manager" instance=ExtResource( 11 )]
-
-[node name="enemy" parent="Combat Manager" instance=ExtResource( 12 )]
 
 [node name="Menu Manager" type="Node2D" parent="."]
 visible = false

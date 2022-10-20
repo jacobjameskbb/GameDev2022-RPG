@@ -30,34 +30,65 @@ func _process(delta):
 func _physics_process(delta):
 	
 	if player_number == 1:
-		if Input.is_action_pressed("left"):
+		if Input.is_action_pressed("player1_left"):
 			velocity.x -= player_walk_speed
 			player_is_moving = true
 			$AnimatedSprite.scale.x = -1
 			
-		if Input.is_action_pressed("right"):
+		if Input.is_action_pressed("player1_right"):
 			velocity.x += player_walk_speed
 			player_is_moving = true
 			$AnimatedSprite.scale.x = 1
 			
-		if Input.is_action_just_released("left"):
+		if Input.is_action_just_released("player1_left"):
 			velocity.x = 0
 			
-		if Input.is_action_just_released("right"):
+		if Input.is_action_just_released("player1_right"):
 			velocity.x = 0
 			
-		if Input.is_action_pressed("jump"):
+		if Input.is_action_pressed("player1_jump"):
 			if player_is_falling == false:
 				player_is_jumping = true
 				player_is_falling = true
 				velocity.y = -player_jump_speed
 				jump_height = position.y - 200
 				
-		if Input.is_action_just_released("jump"):
+		if Input.is_action_just_released("player1_jump"):
 			if player_is_jumping == true:
 				if velocity.y <= 0:
 					velocity.y = 0
 				player_is_jumping = false
+
+	elif player_number == 2:
+		if Input.is_action_pressed("player2_left"):
+			velocity.x -= player_walk_speed
+			player_is_moving = true
+			$AnimatedSprite.scale.x = -1
+			
+		if Input.is_action_pressed("player2_right"):
+			velocity.x += player_walk_speed
+			player_is_moving = true
+			$AnimatedSprite.scale.x = 1
+			
+		if Input.is_action_just_released("player2_left"):
+			velocity.x = 0
+			
+		if Input.is_action_just_released("player2_right"):
+			velocity.x = 0
+			
+		if Input.is_action_pressed("player2_jump"):
+			if player_is_falling == false:
+				player_is_jumping = true
+				player_is_falling = true
+				velocity.y = -player_jump_speed
+				jump_height = position.y - 200
+				
+		if Input.is_action_just_released("player2_jump"):
+			if player_is_jumping == true:
+				if velocity.y <= 0:
+					velocity.y = 0
+				player_is_jumping = false
+	
 			
 	velocity.y += GRAVITY
 	
