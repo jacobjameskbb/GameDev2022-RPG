@@ -34,6 +34,7 @@ func _physics_process(_delta):
 		read_input()
 
 func kill():
-	get_tree().reload_current_scene() 
-
+	# This is a dangerous function, as it will reset the current scene
+	# get_tree().reload_current_scene() 
+	pass
 

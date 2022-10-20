@@ -1,16 +1,19 @@
 extends Area2D
 
-export(PackedScene) var target_scene
+# This variable indicates the combat to start
+export var combat = 1
+
+# signal to check if the player has entered the door
+signal player_entered
 
 func _ready():
 	pass
 
-func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		if get_overlapping_bodies().size() > 0:
-			return
-		
-			
-func next_level():
-	var ERR = get_tree().change_scene_to(target_scene)
 
+
+
+
+# If the player has entered the door, send a signal with the combat number to the world
+func _on_door_body_entered(body):
+	if body.is_in_group("player"):
+		emit_signal("player_entered", combat)

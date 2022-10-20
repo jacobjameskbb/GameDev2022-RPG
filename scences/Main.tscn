@@ -5,9 +5,9 @@
 [ext_resource path="res://scripts/Main.gd" type="Script" id=3]
 [ext_resource path="res://UI, dialogue/Dialogue Manager.gd" type="Script" id=4]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scences/npc.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/Combat Manager.gd" type="Script" id=6]
 [ext_resource path="res://UI, dialogue/menu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scences/door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scences/world1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scences/testmap.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/Fonts/pirate.tres" type="DynamicFont" id=10]
 [ext_resource path="res://scences/map template.tscn" type="PackedScene" id=11]
@@ -22,19 +22,16 @@ current = true
 [node name="World Manager" type="Node2D" parent="."]
 script = ExtResource( 2 )
 
-[node name="main player" parent="World Manager" instance=ExtResource( 5 )]
+[node name="world1" parent="World Manager" instance=ExtResource( 8 )]
+
+[node name="main player" parent="World Manager" groups=[
+"player",
+] instance=ExtResource( 5 )]
 position = Vector2( 518, 273 )
-
-[node name="npc" parent="World Manager" instance=ExtResource( 6 )]
-position = Vector2( 965, 239 )
-
-[node name="RigidBody2D" parent="World Manager/npc" instance=ExtResource( 6 )]
-
-[node name="door" parent="World Manager" instance=ExtResource( 8 )]
-position = Vector2( 1282, 367 )
 
 [node name="Combat Manager" type="Node2D" parent="."]
 visible = false
+script = ExtResource( 6 )
 
 [node name="test map" parent="Combat Manager" instance=ExtResource( 9 )]
 
@@ -92,14 +89,19 @@ margin_right = 22.1601
 margin_bottom = 34.7
 color = Color( 0.329412, 0.207843, 0.0980392, 1 )
 
-[node name="Text" type="RichTextLabel" parent="Dialogue Manager/DialogueBox"]
+[node name="Text" type="RichTextLabel" parent="Dialogue Manager/DialogueBox/Textbox"]
 anchor_left = 0.025
 anchor_top = 0.025
 anchor_right = 0.975
 anchor_bottom = 0.975
-margin_left = -3.92
-margin_top = 4.35
-margin_right = -3.91998
-margin_bottom = 4.34995
+margin_left = -20.232
+margin_top = -2.9875
+margin_right = -20.232
+margin_bottom = -2.98755
 custom_fonts/normal_font = ExtResource( 10 )
 text = "Ahoy there sailor! The Textbox is here!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="start_combat" from="World Manager" to="." method="_on_World_Manager_start_combat"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scripts/NPC.gd" type="Script" id=1]
+[ext_resource path="res://scripts/npc.gd" type="Script" id=1]
 [ext_resource path="res://assets/images__1_-removebg-preview.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="npc" type="RigidBody2D"]
 mode = 1
 script = ExtResource( 1 )
 
