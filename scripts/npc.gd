@@ -3,9 +3,9 @@ extends RigidBody2D
 var active = false
 
 func _ready():
-	connect("body_entered",self,"on_NPC_body_entered")
-	connect("body_exited",self,"on_NPC_body_exited")
-
+	#connect("body_entered",self,"on_NPC_body_entered")
+	#connect("body_exited",self,"on_NPC_body_exited")
+	pass
 
 func on_NPC_body_entered(body):
 	if body.name == "player":

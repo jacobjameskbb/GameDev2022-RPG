@@ -5,8 +5,12 @@ extends Node2D
 # World manager should control everything that happens in-game
 # World manager should contain things such as the player, the environment, the enemies, etc.
 
-func _ready():
-	pass # Replace with function body.
+signal start_combat
 
-func _process(_delta):
-	pass
+func _ready():
+	for child in self.get_children():
+		if child.is_in_group("world"):
+			child.connect("combat_start",self,"combat_trigger")
+	
+func combat_trigger(combat_number):
+	emit_signal("start_combat",combat_number)

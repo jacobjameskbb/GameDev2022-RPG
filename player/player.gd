@@ -4,9 +4,7 @@ extends KinematicBody2D
 var velocity : Vector2 = Vector2()
 var direction : Vector2 = Vector2()
 var motionspeed = 500 
-var gravity = 10
-
-
+var bullet_speed = 100
 
 func read_input():
 	velocity = Vector2()
@@ -27,9 +25,6 @@ func read_input():
 	velocity = velocity.normalized()
 	velocity = move_and_slide(velocity * 200)
 	#look_at(get_global_mouse_position())
-		
-	if Input.is_action_just_pressed("esc"):
-		get_tree().change_scene("res://dialogue UI/menu.tscn/menu.tscn")
 
 #func _on_Spell_body_entered(body):
 	#if "Enemy" in body.name:
@@ -39,5 +34,7 @@ func _physics_process(_delta):
 		read_input()
 
 func kill():
-	get_tree().reload_current_scene() 
+	# This is a dangerous function, as it will reset the current scene
+	# get_tree().reload_current_scene() 
+	pass
 
