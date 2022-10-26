@@ -21,9 +21,7 @@ script = ExtResource( 2 )
 
 [node name="world1" parent="World Manager" instance=ExtResource( 8 )]
 
-[node name="main player" parent="World Manager" groups=[
-"player",
-] instance=ExtResource( 5 )]
+[node name="main player" parent="World Manager" groups=["player"] instance=ExtResource( 5 )]
 position = Vector2( 518, 273 )
 
 [node name="Combat Manager" type="Node2D" parent="."]
@@ -52,9 +50,6 @@ margin_top = -904.0
 margin_right = -1613.0
 margin_bottom = -904.0
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextTween" type="Tween" parent="Dialogue Manager"]
 
