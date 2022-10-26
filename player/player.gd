@@ -3,7 +3,7 @@ extends KinematicBody2D
 #onready var save_file = save_file.gamedata
 var velocity : Vector2 = Vector2()
 var direction : Vector2 = Vector2()
-var motionspeed = 500 
+var motionspeed = 500
 var bullet_speed = 100
 
 func read_input():
@@ -23,7 +23,7 @@ func read_input():
 		direction = Vector2 (1, 0)
 	
 	velocity = velocity.normalized()
-	velocity = move_and_slide(velocity * 200)
+	velocity = move_and_slide(velocity * 1000)
 	#look_at(get_global_mouse_position())
 
 #func _on_Spell_body_entered(body):
