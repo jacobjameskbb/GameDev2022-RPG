@@ -22,11 +22,6 @@ var current_level = NAN
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 func load_combat(number):
 	var combat = combat_dictionary[number].instance()
 	call_deferred('add_child',combat)

@@ -75,8 +75,8 @@ func _physics_process(delta):
 	velocity.y += GRAVITY
 	
 	# Cap Speed
-	#if abs(velocity.x) >= player_walk_speed:
-	#	velocity.x = player_walk_speed * (velocity.x / abs(velocity.x))
+	if abs(velocity.x) >= player_walk_speed:
+		velocity.x = player_walk_speed * (velocity.x / abs(velocity.x))
 	
 # warning-ignore:return_value_discarded
 	move_and_slide(velocity, Vector2(0, -1))
@@ -84,7 +84,6 @@ func _physics_process(delta):
 func _on_floor_body_shape_entered(_body_id, _body, _body_shape, _local_shape):
 	player_is_jumping = false
 	player_is_falling = false
-	print('ding')
 
 func _on_ceiling_body_shape_entered(_body_id, _body, _body_shape, _local_shape):
 	if player_is_jumping == true:
