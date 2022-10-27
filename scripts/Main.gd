@@ -17,11 +17,11 @@ func _process(_delta):
 		$MainCamera.position = $"World Manager/main player".position
 	
 	$"Menu Manager".position = $MainCamera.position
-	$"Dialogue Manager".rect_position =$MainCamera.position
+	$"Dialogue Manager".rect_position = $MainCamera.position
 
 func _on_World_Manager_start_combat(combat_number):
 	$"Combat Manager".load_combat(combat_number)
 	var _world_save = $"World Manager"
-	remove_child($"World Manager")
+	call_deferred('remove_child',$"World Manager")
 	$"Combat Manager".visible = true
 	in_combat = true
