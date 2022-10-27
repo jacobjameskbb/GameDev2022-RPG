@@ -29,5 +29,5 @@ func _ready():
 
 func load_combat(number):
 	var combat = combat_dictionary[number].instance()
-	add_child(combat)
+	call_deferred('add_child',combat)
 	current_level = combat

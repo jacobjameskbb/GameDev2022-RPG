@@ -36,7 +36,7 @@ func pause_combat():
 
 func _on_World_Manager_start_combat(combat_number):
 	$"Combat Manager".load_combat(combat_number)
-	var world_save = $"World Manager"
+	var _world_save = $"World Manager"
 	remove_child($"World Manager")
 	$"Combat Manager".visible = true
 	in_combat = true
