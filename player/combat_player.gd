@@ -4,19 +4,15 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
-const CRAWL_SPEED = 2 * 96
-
-onready var standing_collision = $standingshape
-onready var crouching_collision = $crouchingshape
-
 const GRAVITY = 9.8
 var velocity = Vector2(0,0)
 var player_walk_speed = 500
-var player_jump_speed = 500
+var player_jump_speed = 1000
 var player_is_moving = false
 var player_is_jumping = false
+var player_is_crouching = false
 var player_is_falling = false
-var jump_height = 10000
+var jump_height = 1000
 export var player_number = 1
 
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +24,7 @@ func _ready():
 #	add_state("crawl")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+# warning-ignore:unused_argument
 func _process(delta):
 	if velocity.x == 0 and player_is_falling == false:
 		$AnimatedSprite.playing = false
@@ -35,9 +32,17 @@ func _process(delta):
 		$AnimatedSprite.playing = true
 	
 
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	
 	if player_number == 1:
+		
+		if Input.is_action_just_pressed("crouch"):
+			player_is_crouching = true
+		
+		if Input.is_action_just_released("crouch"):
+			player_is_crouching = false
+		
 		if Input.is_action_pressed("left"):
 			velocity.x -= player_walk_speed
 			player_is_moving = true
@@ -70,42 +75,20 @@ func _physics_process(delta):
 	velocity.y += GRAVITY
 	
 	# Cap Speed
-	if abs(velocity.x) >= player_walk_speed:
-		velocity.x = player_walk_speed * (velocity.x / abs(velocity.x))
+	#if abs(velocity.x) >= player_walk_speed:
+	#	velocity.x = player_walk_speed * (velocity.x / abs(velocity.x))
 	
+# warning-ignore:return_value_discarded
 	move_and_slide(velocity, Vector2(0, -1))
 
-func _on_floor_body_shape_entered(body_id, body, body_shape, local_shape):
+func _on_floor_body_shape_entered(_body_id, _body, _body_shape, _local_shape):
 	player_is_jumping = false
 	player_is_falling = false
+	print('ding')
 
-func _on_ceiling_body_shape_entered(body_id, body, body_shape, local_shape):
+func _on_ceiling_body_shape_entered(_body_id, _body, _body_shape, _local_shape):
 	if player_is_jumping == true:
 		if velocity.y <= 0:
 			velocity.y = 0
 		player_is_jumping = false
-		
-func _on_crouch():
-	standing_collision.disabled = true
-	crouching_collision.disabled = false 
-	
-func _on_stand(): 
-	standing_collision.disabled = false
-	crouching_collision.disabled = true 	
-		
-		 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+

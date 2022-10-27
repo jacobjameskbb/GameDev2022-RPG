@@ -11,20 +11,25 @@
 [ext_resource path="res://assets/Fonts/pirate.tres" type="DynamicFont" id=10]
 
 [node name="Main" type="Node"]
+pause_mode = 2
 script = ExtResource( 3 )
 
 [node name="MainCamera" type="Camera2D" parent="."]
 current = true
 
 [node name="World Manager" type="Node2D" parent="."]
+pause_mode = 1
 script = ExtResource( 2 )
 
 [node name="world1" parent="World Manager" instance=ExtResource( 8 )]
 
-[node name="main player" parent="World Manager" groups=["player"] instance=ExtResource( 5 )]
+[node name="main player" parent="World Manager" groups=[
+"player",
+] instance=ExtResource( 5 )]
 position = Vector2( 518, 273 )
 
 [node name="Combat Manager" type="Node2D" parent="."]
+pause_mode = 1
 script = ExtResource( 6 )
 
 [node name="Menu Manager" type="Node2D" parent="."]
@@ -45,6 +50,9 @@ margin_top = -904.0
 margin_right = -1613.0
 margin_bottom = -904.0
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextTween" type="Tween" parent="Dialogue Manager"]
 

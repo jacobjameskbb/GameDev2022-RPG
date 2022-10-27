@@ -14,3 +14,5 @@ func _ready():
 	
 func combat_trigger(combat_number):
 	emit_signal("start_combat",combat_number)
+	
+	

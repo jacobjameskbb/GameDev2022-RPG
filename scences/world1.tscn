@@ -16,4 +16,4 @@ script = ExtResource( 1 )
 position = Vector2( 589.999, 282.986 )
 
 [node name="door1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1591.13, -144.163 )
+position = Vector2( 67.13, -22.163 )

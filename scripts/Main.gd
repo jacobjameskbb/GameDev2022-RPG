@@ -25,21 +25,19 @@ func _process(_delta):
 	$"Dialogue Manager".rect_position =$MainCamera.position
 
 func pause_world():
-	$"World Manager".pause_mode = Node.PAUSE_MODE_STOP
-	
-func unpause_world():
-	$"World Manager".pause_mode = Node.PAUSE_MODE_INHERIT
+	#$"World Manager".pause_mode = Node.PAUSE_MODE_STOP
+	$"Combat Manager".pause_mode = Node.PAUSE_MODE_PROCESS
+	get_tree().paused = true
+	Physics2DServer.set_active(true)
 	
 func pause_combat():
+	$"World Manager".pause_mode = Node.PAUSE_MODE_PROCESS
 	$"Combat Manager".pause_mode = Node.PAUSE_MODE_STOP
-
-func unpause_combat():
-	$"Combat Manager".pause_mode = Node.PAUSE_MODE_INHERIT
 
 func _on_World_Manager_start_combat(combat_number):
 	$"Combat Manager".load_combat(combat_number)
-	pause_world()
-	$"World Manager".visible = false
-	unpause_combat()
+	var world_save = $"World Manager"
+	remove_child($"World Manager")
 	$"Combat Manager".visible = true
 	in_combat = true
+	pause_world()

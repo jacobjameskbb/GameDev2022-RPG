@@ -6,6 +6,8 @@ var direction : Vector2 = Vector2()
 var motionspeed = 500
 var bullet_speed = 100
 
+var f = 0
+
 func read_input():
 	velocity = Vector2()
 	
@@ -32,6 +34,8 @@ func read_input():
 
 func _physics_process(_delta):
 		read_input()
+		#f+=_delta
+		#print('ding, player can move',f, ' Pause mode: ',get_tree().paused)
 
 func kill():
 	# This is a dangerous function, as it will reset the current scene

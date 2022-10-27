@@ -28,9 +28,12 @@ func hit():
 func end_of_hit():
 	$AttackDetector.monitoring = false
 	
+# warning-ignore:unused_argument
 func _on_AttackDetector_body_entered(body):
-	get_tree().reload_current_scene()
+# warning-ignore:return_value_discarded
+	#get_tree().reload_current_scene()
+	pass
 
-
+# warning-ignore:unused_argument
 func _on_PlayerDetector_body_entered(body: Node) -> void:
 	pass 
