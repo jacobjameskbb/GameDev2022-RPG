@@ -14,15 +14,19 @@ func read_input():
 	if Input.is_action_pressed("up"):
 		velocity.y -= 1
 		direction = Vector2(0, -1)
+		$AnimatedSprite.animation = "boat_up"
 	if Input.is_action_pressed("down"):
 		velocity.y += 1
 		direction = Vector2(0, 1)
+		$AnimatedSprite.animation = "boat_down"
 	if Input.is_action_pressed("left"):
 		velocity.x -= 1
 		direction = Vector2(-1, 0)
+		$AnimatedSprite.animation = "boat_left"
 	if Input.is_action_pressed("right"):
 		velocity.x += 1
 		direction = Vector2 (1, 0)
+		$AnimatedSprite.animation = "boat_right"
 	
 	velocity = velocity.normalized()
 	velocity = move_and_slide(velocity * 1000)
