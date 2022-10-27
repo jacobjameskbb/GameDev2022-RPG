@@ -4,6 +4,11 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
+const CRAWL_SPEED = 2 * 96
+
+onready var standing_collision = $standingshape
+onready var crouching_collision = $crouchingshape
+
 const GRAVITY = 9.8
 var velocity = Vector2(0,0)
 var player_walk_speed = 500
@@ -18,6 +23,9 @@ export var player_number = 1
 func _ready():
 	pass # Replace with function body.
 
+#func _init_states():
+#	add_state("crouch")
+#	add_state("crawl")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -76,3 +84,28 @@ func _on_ceiling_body_shape_entered(body_id, body, body_shape, local_shape):
 		if velocity.y <= 0:
 			velocity.y = 0
 		player_is_jumping = false
+		
+func _on_crouch():
+	standing_collision.disabled = true
+	crouching_collision.disabled = false 
+	
+func _on_stand(): 
+	standing_collision.disabled = false
+	crouching_collision.disabled = true 	
+		
+		 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
