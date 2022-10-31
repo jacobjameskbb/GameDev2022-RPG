@@ -23,9 +23,7 @@ script = ExtResource( 2 )
 
 [node name="world1" parent="World Manager" instance=ExtResource( 8 )]
 
-[node name="main player" parent="World Manager" groups=[
-"player",
-] instance=ExtResource( 5 )]
+[node name="main player" parent="World Manager" groups=["player"] instance=ExtResource( 5 )]
 position = Vector2( 518, 273 )
 
 [node name="Combat Manager" type="Node2D" parent="."]
@@ -66,9 +64,6 @@ margin_top = 667.0
 margin_right = 1660.4
 margin_bottom = 933.0
 color = Color( 0.239216, 0.12549, 0.12549, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Textbox" type="ColorRect" parent="Dialogue Manager/DialogueBox"]
 anchor_left = 0.05

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/images__1_-removebg-preview.png-9f26fe23030ac264db32c1adb8bcecc3.stex"
+path="res://.import/Screen Shot 2022-10-29 at 10.21.11 PM.png-98c058eee9051982b6f195fc8ac8b9cc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images__1_-removebg-preview.png"
-dest_files=[ "res://.import/images__1_-removebg-preview.png-9f26fe23030ac264db32c1adb8bcecc3.stex" ]
+source_file="res://assets/Screen Shot 2022-10-29 at 10.21.11 PM.png"
+dest_files=[ "res://.import/Screen Shot 2022-10-29 at 10.21.11 PM.png-98c058eee9051982b6f195fc8ac8b9cc.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

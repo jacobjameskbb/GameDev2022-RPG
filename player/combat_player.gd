@@ -4,6 +4,8 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
+onready var _animated_sprite = $AnimatedSprite
+
 const GRAVITY = 9.8
 var velocity = Vector2(0,0)
 var player_walk_speed = 500
@@ -19,9 +21,9 @@ export var player_number = 1
 func _ready():
 	pass # Replace with function body.
 
-#func _init_states():
-#	add_state("crouch")
-#	add_state("crawl")
+func Sword_position():
+	$Sword.scale.x = -1 
+	$Sword.scale.position = -$Sword.position.x
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
@@ -31,17 +33,28 @@ func _process(delta):
 	else:
 		$AnimatedSprite.playing = true
 	
-
 # warning-ignore:unused_argument
 func _physics_process(delta):
 	
 	if player_number == 1:
 		
 		if Input.is_action_just_pressed("crouch"):
-			player_is_crouching = true
+			get_node("CollisionShape2D").disabled = true
+			get_node("crouchingshape").disabled = false
+			_animated_sprite.play("crouch")
+		else:
+			get_node("crouchingshape").disabled = true
+			get_node("CollisionShape2D").disabled = false
+			$AnimatedSprite.stop
+	
+		#if Input.is_action_just_released("crouch"):
+			#get_node("crouchingshape").disabled = true
+			#get_node("CollisionShape2D").disabled = false
+			#$AnimatedSprite.stop("crouch")
 		
-		if Input.is_action_just_released("crouch"):
-			player_is_crouching = false
+		if Input.is_action_just_pressed("lmb"):
+			$AnimatedSprite.play("attack")	
+			$AnimatedSprite.stop
 		
 		if Input.is_action_pressed("left"):
 			velocity.x -= player_walk_speed
@@ -55,9 +68,11 @@ func _physics_process(delta):
 			
 		if Input.is_action_just_released("left"):
 			velocity.x = 0
+			_animated_sprite.frame = 0
 			
 		if Input.is_action_just_released("right"):
 			velocity.x = 0
+			_animated_sprite.frame = 0
 			
 		if Input.is_action_pressed("jump"):
 			if player_is_falling == false:
@@ -73,7 +88,7 @@ func _physics_process(delta):
 				player_is_jumping = false
 			
 	velocity.y += GRAVITY
-	
+
 	# Cap Speed
 	if abs(velocity.x) >= player_walk_speed:
 		velocity.x = player_walk_speed * (velocity.x / abs(velocity.x))
