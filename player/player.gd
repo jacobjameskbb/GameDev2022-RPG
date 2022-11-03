@@ -3,7 +3,7 @@ extends KinematicBody2D
 #onready var save_file = save_file.gamedata
 var velocity : Vector2 = Vector2()
 var direction : Vector2 = Vector2()
-var motionspeed = 500
+var motionspeed = 50
 var bullet_speed = 100
 
 var f = 0
@@ -29,7 +29,7 @@ func read_input():
 		$AnimatedSprite.animation = "boat_right"
 	
 	velocity = velocity.normalized()
-	velocity = move_and_slide(velocity * 1000)
+	velocity = move_and_slide(velocity * 200)
 	#look_at(get_global_mouse_position())
 
 #func _on_Spell_body_entered(body):

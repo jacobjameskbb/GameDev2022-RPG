@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/images__1_-removebg-preview.png-9f26fe23030ac264db32c1adb8bcecc3.stex"
+path="res://.import/ocean.png-3379d76ef593ad0d512f8899413916a4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images__1_-removebg-preview.png"
-dest_files=[ "res://.import/images__1_-removebg-preview.png-9f26fe23030ac264db32c1adb8bcecc3.stex" ]
+source_file="res://assets/ocean.png"
+dest_files=[ "res://.import/ocean.png-3379d76ef593ad0d512f8899413916a4.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,7 +28,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

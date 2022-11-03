@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/sprites/boat south.png" type="Texture" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
-[ext_resource path="res://player/weapon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprites/boat west.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/boatnorth.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/boat east.png" type="Texture" id=6]
@@ -15,6 +14,16 @@ extents = Vector2( 32.5, 32 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "boat_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "boat_down",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "boat_right",
@@ -24,16 +33,6 @@ animations = [ {
 "loop": true,
 "name": "boat_up",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "boat_down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "boat_left",
-"speed": 5.0
 } ]
 
 [node name="player" type="KinematicBody2D"]
@@ -42,9 +41,6 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-
-[node name="sword" parent="." instance=ExtResource( 3 )]
-position = Vector2( 44, 0 )
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_mask = 14
