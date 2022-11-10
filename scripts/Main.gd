@@ -25,3 +25,4 @@ func _on_World_Manager_start_combat(combat_number):
 	call_deferred('remove_child',$"World Manager")
 	$"Combat Manager".visible = true
 	in_combat = true
+	$"Music Manager".play_song(str(combat_number))
