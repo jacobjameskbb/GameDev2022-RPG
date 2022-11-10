@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/portal.png" type="Texture" id=1]
+[ext_resource path="res://assets/island.png" type="Texture" id=1]
 [ext_resource path="res://scripts/door.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 83.5, 171 )
+extents = Vector2( 130.388, 93.2444 )
 
 [node name="door" type="Area2D" groups=[
 "door",
@@ -13,12 +13,10 @@ collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -36.5, -280 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -4, -262 )
-scale = Vector2( 5.28125, 8.0625 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_door_body_entered"]
