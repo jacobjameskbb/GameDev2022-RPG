@@ -21,7 +21,7 @@ func _process(delta):
 			# We want this node to send a signal to level1 to send a signal to WorldManager.
 			# This can start the transition back to the world map so the user can select another level.
 			
-func _on_Area2D_body_entered(body: Node):
+func _on_Area2D_body_entered(_body):
 	# Let's not destroy the gem, maybe instead transform it into the label?
 	#queue_free()
 	$Sprite.visible = false
