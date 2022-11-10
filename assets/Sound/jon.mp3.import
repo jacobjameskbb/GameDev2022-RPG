@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jon.mp3-051170ff614327b141bd884c29e4a96f.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound/jon.mp3"
+dest_files=[ "res://.import/jon.mp3-051170ff614327b141bd884c29e4a96f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

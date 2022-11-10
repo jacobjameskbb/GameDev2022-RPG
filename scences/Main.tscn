@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI, dialogue/Menu Manager.gd" type="Script" id=1]
 [ext_resource path="res://scripts/World Manager.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scripts/Combat Manager.gd" type="Script" id=6]
 [ext_resource path="res://UI, dialogue/menu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scences/world1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scences/Music Manager.gd" type="Script" id=9]
 [ext_resource path="res://assets/Fonts/pirate.tres" type="DynamicFont" id=10]
 
 [node name="Main" type="Node"]
@@ -92,6 +93,11 @@ text = "Ahoy there sailor! The Textbox is here!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Music Manager" type="Node" parent="."]
+script = ExtResource( 9 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Music Manager"]
 
 [connection signal="start_combat" from="World Manager" to="." method="_on_World_Manager_start_combat"]
 [connection signal="play_pressed" from="Menu Manager/Menu" to="Menu Manager" method="_on_Menu_play_pressed"]
