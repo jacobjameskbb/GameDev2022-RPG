@@ -82,7 +82,7 @@ func _physics_process(delta):
 			velocity.x = 0
 			_animated_sprite.frame = 0
 			
-		if Input.is_action_pressed("jump"):
+		if Input.is_action_just_pressed("jump"):
 			if player_is_falling == false:
 				player_is_jumping = true
 				player_is_falling = true
