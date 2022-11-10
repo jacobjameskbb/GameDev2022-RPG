@@ -17,14 +17,14 @@ animations = [ {
 "name": "walking",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "attack",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "crouch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "attack",
 "speed": 5.0
 } ]
 
@@ -46,6 +46,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "attack"
+frame = 1
 playing = true
 
 [node name="crouchingshape" type="CollisionShape2D" parent="."]
@@ -66,6 +67,8 @@ collision_mask = 30
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling"]
 position = Vector2( 0, -25 )
 shape = SubResource( 5 )
+
+[node name="sword" type="CollisionShape2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_shape_entered" from="floor" to="." method="_on_floor_body_shape_entered"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fences.png-d23fafb51f1291954243acd82ff27e91.stex"
+path="res://.import/gems_copy-removebg-preview (1).png-6964c944a3b2bb4848181412502d7b0e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tilesets/fences.png"
-dest_files=[ "res://.import/fences.png-d23fafb51f1291954243acd82ff27e91.stex" ]
+source_file="res://assets/gems_copy-removebg-preview (1).png"
+dest_files=[ "res://.import/gems_copy-removebg-preview (1).png-6964c944a3b2bb4848181412502d7b0e.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

@@ -62,6 +62,7 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("lmb"):
 			player_is_attacking = true
+			get_node("Area2D/sword box").disabled = false
 		
 		if Input.is_action_pressed("left"):
 			velocity.x -= player_walk_speed
@@ -134,3 +135,7 @@ func _on_ceiling_body_shape_entered(_body_id, _body, _body_shape, _local_shape):
 func _on_AnimatedSprite_animation_finished():
 	if player_is_attacking:
 		player_is_attacking = false
+
+
+
+	

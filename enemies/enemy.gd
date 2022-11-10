@@ -35,5 +35,9 @@ func _on_AttackDetector_body_entered(body):
 	pass
 
 # warning-ignore:unused_argument
-func _on_PlayerDetector_body_entered(body: Node) -> void:
+func _on_PlayerDetector_body_entered():
+	pass 
+
+
+func _on_Area2D_area_entered(area: Area2D) -> void:
 	pass 
