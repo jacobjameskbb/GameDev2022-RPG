@@ -10,6 +10,9 @@ var songs = {
 	'5':'res://assets/Sound/mysong.mp3',
 }
 
+func _ready():
+	play_song('overworld')
+
 func play_song(song_title):
 	$AudioStreamPlayer.stop()
 	$AudioStreamPlayer.stream= load(songs[song_title])
