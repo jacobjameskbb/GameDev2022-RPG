@@ -15,4 +15,6 @@ func _ready():
 func combat_trigger(combat_number):
 	emit_signal("start_combat",combat_number)
 	
-	
+func spawn_gem(combat_number):
+	print("overworld/door" + str(combat_number) + "/gem")
+	get_node("overworld/door" + str(combat_number) + "/gem").visible = true

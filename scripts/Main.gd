@@ -32,7 +32,7 @@ func _on_World_Manager_start_combat(combat_number):
 
 func _on_Combat_Manager_finish_combat():
 	add_child(_world_save)
-	print($"World Manager".name)
+	$"World Manager".spawn_gem($"Combat Manager".current_level.level_number)
 	$"Combat Manager".visible = false
 	in_combat = false
 	$"Music Manager".play_song("overworld")

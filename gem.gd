@@ -5,6 +5,11 @@ export(String, "green", "red", "blue", "purple", "yellow") var gem_color
 
 signal gem_acquired 
 
+export var sprite_only = false
+
+func _ready():
+	if sprite_only:
+		$CollisionShape2D.disabled = true
 
 func _process(delta):
 	

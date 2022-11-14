@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/door.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 130.388, 93.2444 )
+extents = Vector2( 110.568, 73.4227 )
 
 [node name="door" type="Area2D" groups=[
 "door",

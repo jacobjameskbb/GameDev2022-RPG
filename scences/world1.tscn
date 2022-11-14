@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/world.gd" type="Script" id=1]
 [ext_resource path="res://scences/door.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scences/npc.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scences/testmap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gem.tscn" type="PackedScene" id=5]
 
 [node name="world1" type="Node2D" groups=[
 "world",
@@ -17,3 +18,8 @@ position = Vector2( 589.999, 282.986 )
 
 [node name="door1" parent="." instance=ExtResource( 2 )]
 position = Vector2( 67.13, -22.163 )
+
+[node name="gem" parent="door1" instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 0, -100 )
+sprite_only = true
