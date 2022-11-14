@@ -4,7 +4,7 @@
 [ext_resource path="res://enemies/enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/icon.png" type="Texture" id=3]
 [ext_resource path="res://gem.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scences/level1.gd" type="Script" id=5]
+[ext_resource path="res://scences/level.gd" type="Script" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -34,6 +34,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [node name="level1" type="Node2D"]
 script = ExtResource( 5 )
+level_number = 1
 
 [node name="enemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( 368.313, -14.2952 )
@@ -59,3 +60,9 @@ tile_data = PoolIntArray( -65543, 0, 0, -131065, 0, 0, -7, 0, 0, -65529, 0, 0, 6
 
 [node name="gem" parent="." instance=ExtResource( 4 )]
 position = Vector2( -256, 0 )
+
+[node name="level finish timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="gem_acquired" from="gem" to="." method="_on_gem_gem_acquired"]
+[connection signal="timeout" from="level finish timer" to="." method="_on_level_finish_timer_timeout"]

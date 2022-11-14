@@ -22,7 +22,7 @@ current = true
 pause_mode = 1
 script = ExtResource( 2 )
 
-[node name="world1" parent="World Manager" instance=ExtResource( 8 )]
+[node name="overworld" parent="World Manager" instance=ExtResource( 8 )]
 
 [node name="main player" parent="World Manager" groups=[
 "player",
@@ -100,4 +100,5 @@ script = ExtResource( 9 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Music Manager"]
 
 [connection signal="start_combat" from="World Manager" to="." method="_on_World_Manager_start_combat"]
+[connection signal="finish_combat" from="Combat Manager" to="." method="_on_Combat_Manager_finish_combat"]
 [connection signal="play_pressed" from="Menu Manager/Menu" to="Menu Manager" method="_on_Menu_play_pressed"]

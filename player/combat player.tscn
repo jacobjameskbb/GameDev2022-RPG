@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/pixil-frame-0.png" type="Texture" id=1]
 [ext_resource path="res://assets/crouch0.png" type="Texture" id=2]
@@ -7,16 +7,11 @@
 [ext_resource path="res://assets/sprites/playerattack.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/playeridle.png" type="Texture" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.5, 27.5 )
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 17.6169
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "walking",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "crouch",
@@ -26,6 +21,11 @@ animations = [ {
 "loop": true,
 "name": "attack",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walking",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -34,6 +34,9 @@ extents = Vector2( 35, 12 )
 [sub_resource type="RectangleShape2D" id=4]
 
 [sub_resource type="RectangleShape2D" id=5]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 10, 5.40032 )
 
 [node name="combat player" type="KinematicBody2D"]
 collision_mask = 30
@@ -46,7 +49,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "attack"
-frame = 1
 playing = true
 
 [node name="crouchingshape" type="CollisionShape2D" parent="."]
@@ -68,7 +70,12 @@ collision_mask = 30
 position = Vector2( 0, -25 )
 shape = SubResource( 5 )
 
-[node name="sword" type="CollisionShape2D" parent="."]
+[node name="sword" type="Area2D" parent="."]
+position = Vector2( 21.353, 0 )
+
+[node name="swordbox" type="CollisionShape2D" parent="sword"]
+position = Vector2( 0.33371, 0 )
+shape = SubResource( 6 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_shape_entered" from="floor" to="." method="_on_floor_body_shape_entered"]

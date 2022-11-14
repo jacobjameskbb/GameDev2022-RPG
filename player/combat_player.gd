@@ -62,7 +62,7 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("lmb"):
 			player_is_attacking = true
-			get_node("Area2D/sword box").disabled = false
+			get_node("sword/swordbox").disabled = false
 		
 		if Input.is_action_pressed("left"):
 			velocity.x -= player_walk_speed

@@ -3,6 +3,9 @@ extends Area2D
 var float_number = 0
 export(String, "green", "red", "blue", "purple", "yellow") var gem_color
 
+signal gem_acquired 
+
+
 func _process(delta):
 	
 	# Made a manual hovering animation for the gem
@@ -17,6 +20,7 @@ func _process(delta):
 			$Label.rect_position.y -= 20*delta
 		else:
 			$Label.visible = false
+			emit_signal("gem_acquired")
 			# When this Label turns invisible, it will be time to quit level 1.
 			# We want this node to send a signal to level1 to send a signal to WorldManager.
 			# This can start the transition back to the world map so the user can select another level.
