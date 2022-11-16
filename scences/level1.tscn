@@ -60,7 +60,7 @@ tile_data = PoolIntArray( -65543, 0, 0, -131065, 0, 0, -7, 0, 0, -65529, 0, 0, 6
 
 [node name="gem" parent="." instance=ExtResource( 4 )]
 position = Vector2( -256, 0 )
-gem_color = "red"
+gem_color = "green"
 
 [node name="level finish timer" type="Timer" parent="."]
 wait_time = 0.5

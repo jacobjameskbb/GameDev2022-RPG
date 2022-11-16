@@ -10,6 +10,9 @@ export var sprite_only = false
 func _ready():
 	if sprite_only:
 		$CollisionShape2D.disabled = true
+		
+	#print('ding',gem_color)
+	#$AnimatedSprite.animation = gem_color
 
 func _process(delta):
 	
@@ -17,7 +20,7 @@ func _process(delta):
 	float_number += delta * 5
 	if float_number >= 360:
 		float_number = 0
-	$Sprite.position.y += sin(float_number)*0.3
+	$AnimatedSprite.position.y += sin(float_number)*0.3
 	
 	# Label will go up if it is revealed
 	if $Label.visible:
@@ -33,5 +36,5 @@ func _process(delta):
 func _on_Area2D_body_entered(_body):
 	# Let's not destroy the gem, maybe instead transform it into the label?
 	#queue_free()
-	$Sprite.visible = false
+	$AnimatedSprite.visible = false
 	$Label.visible = true	

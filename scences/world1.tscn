@@ -17,22 +17,27 @@ position = Vector2( 589.999, 282.986 )
 
 [node name="door1" parent="." instance=ExtResource( 2 )]
 position = Vector2( -238.956, -60.8442 )
+gem_color = "green"
 
 [node name="door2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 627.309, -60.5446 )
 combat = 2
+gem_color = "red"
 
 [node name="door3" parent="." instance=ExtResource( 2 )]
 position = Vector2( -482.57, 711.156 )
 combat = 3
+gem_color = "blue"
 
 [node name="door4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 288.907, 1085.78 )
 combat = 4
+gem_color = "purple"
 
 [node name="door5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 896.611, 636.396 )
 combat = 5
+gem_color = "yellow"
 
 [node name="player_start_pos" type="Node2D" parent="."]
 position = Vector2( 200, 400 )

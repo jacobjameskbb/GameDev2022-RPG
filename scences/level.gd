@@ -9,9 +9,17 @@ signal level_finished
 signal player_died
 export var level_number = 0
 
+var gem_colors = {
+	1:'green',
+	2:'red',
+	3:'blue',
+	4:'purple',
+	5:'yellow'
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$gem/AnimatedSprite.animation = gem_colors[level_number]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

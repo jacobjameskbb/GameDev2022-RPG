@@ -6,12 +6,10 @@ export var combat = 1
 # signal to check if the player has entered the door
 signal player_entered
 
+export(String, "green", "red", "blue", "purple", "yellow") var gem_color
+
 func _ready():
-	pass
-
-
-
-
+	$gem/AnimatedSprite.animation = gem_color
 
 # If the player has entered the door, send a signal with the combat number to the world
 func _on_door_body_entered(body):
