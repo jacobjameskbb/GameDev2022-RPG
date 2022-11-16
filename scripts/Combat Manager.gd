@@ -19,6 +19,7 @@ var combat_dictionary = {
 var current_level = NAN
 
 signal finish_combat
+signal player_died
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,7 +30,12 @@ func load_combat(number):
 	call_deferred('add_child',combat)
 	current_level = combat
 	current_level.connect("level_finished",self,"end_level")
+	current_level.connect("player_died",self,"player_died")
 
+func player_died():
+	call_deferred("remove_child",current_level)
+	current_level.queue_free()
+	emit_signal("player_died")
 	
 func end_level():
 	combat_dictionary[current_level.level_number]["completed"] = true

@@ -29,6 +29,9 @@ script = ExtResource( 2 )
 ] instance=ExtResource( 5 )]
 position = Vector2( 518, 273 )
 
+[node name="area_cooldown" type="Timer" parent="World Manager"]
+one_shot = true
+
 [node name="Combat Manager" type="Node2D" parent="."]
 pause_mode = 1
 script = ExtResource( 6 )
@@ -100,5 +103,7 @@ script = ExtResource( 9 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Music Manager"]
 
 [connection signal="start_combat" from="World Manager" to="." method="_on_World_Manager_start_combat"]
+[connection signal="timeout" from="World Manager/area_cooldown" to="World Manager" method="_on_area_cooldown_timeout"]
 [connection signal="finish_combat" from="Combat Manager" to="." method="_on_Combat_Manager_finish_combat"]
+[connection signal="player_died" from="Combat Manager" to="." method="_on_Combat_Manager_player_died"]
 [connection signal="play_pressed" from="Menu Manager/Menu" to="Menu Manager" method="_on_Menu_play_pressed"]

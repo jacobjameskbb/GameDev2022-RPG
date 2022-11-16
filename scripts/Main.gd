@@ -23,6 +23,7 @@ func _process(_delta):
 func _on_World_Manager_start_combat(combat_number):
 	if !$"Combat Manager".combat_dictionary[combat_number]["completed"]:
 		$"Combat Manager".load_combat(combat_number)
+		$"World Manager/main player".position = $"World Manager/overworld/player_start_pos".position
 		_world_save = $"World Manager"
 		call_deferred('remove_child',$"World Manager")
 		$"Combat Manager".visible = true
@@ -36,3 +37,12 @@ func _on_Combat_Manager_finish_combat():
 	$"Combat Manager".visible = false
 	in_combat = false
 	$"Music Manager".play_song("overworld")
+
+
+func _on_Combat_Manager_player_died():
+	add_child(_world_save)
+	$"Combat Manager".visible = false
+	in_combat = false
+	$"Music Manager".play_song("overworld")
+	#$"World Manager/overworld/door1/CollisionShape2D".set_deferred("disabled",false)
+

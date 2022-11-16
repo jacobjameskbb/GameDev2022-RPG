@@ -23,3 +23,6 @@ position = Vector2( 67.13, -22.163 )
 visible = false
 position = Vector2( 0, -100 )
 sprite_only = true
+
+[node name="player_start_pos" type="Node2D" parent="."]
+position = Vector2( 200, 400 )

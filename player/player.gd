@@ -6,6 +6,7 @@ var direction : Vector2 = Vector2()
 var motionspeed = 50
 var bullet_speed = 100
 
+
 var f = 0
 
 func read_input():

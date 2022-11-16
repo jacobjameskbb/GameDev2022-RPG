@@ -18,6 +18,9 @@ var player_is_attacking = false
 var max_jump_height = 256 # Player max jump height; each 64 = 1 block. i.e 256 means player can jump four blocks
 var jump_height = 0
 export var player_number = 1
+var player_health = 100
+
+signal player_died
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,6 +40,10 @@ func _process(delta):
 	
 # warning-ignore:unused_argument
 func _physics_process(delta):
+	
+	if player_health <= 0:
+			# Player Dies
+			emit_signal("player_died")
 	
 	if player_number == 1:
 		

@@ -64,5 +64,6 @@ position = Vector2( -256, 0 )
 [node name="level finish timer" type="Timer" parent="."]
 wait_time = 0.5
 
+[connection signal="player_died" from="combat player" to="." method="_on_combat_player_player_died"]
 [connection signal="gem_acquired" from="gem" to="." method="_on_gem_gem_acquired"]
 [connection signal="timeout" from="level finish timer" to="." method="_on_level_finish_timer_timeout"]

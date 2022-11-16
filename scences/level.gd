@@ -6,6 +6,7 @@ extends Node2D
 # var b = "text"
 
 signal level_finished
+signal player_died
 export var level_number = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -25,3 +26,7 @@ func _on_gem_gem_acquired():
 
 func _on_level_finish_timer_timeout():
 	emit_signal("level_finished")
+
+
+func _on_combat_player_player_died():
+	emit_signal("player_died")
