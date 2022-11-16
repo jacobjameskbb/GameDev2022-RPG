@@ -44,5 +44,4 @@ func _on_Combat_Manager_player_died():
 	$"Combat Manager".visible = false
 	in_combat = false
 	$"Music Manager".play_song("overworld")
-	#$"World Manager/overworld/door1/CollisionShape2D".set_deferred("disabled",false)
 

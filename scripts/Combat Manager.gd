@@ -7,12 +7,20 @@ extends Node2D
 
 # Preload all the combat levels
 var level_1 = preload("res://scences/level1.tscn")
+var level_2 = preload("res://scences/level2.tscn")
+var level_3 = preload("res://scences/level3.tscn")
+var level_4 = preload("res://scences/level4.tscn")
+var level_5 = preload("res://scences/level5.tscn")
 
 # Combat Dictionary
 # This ties each level to a number
 
 var combat_dictionary = {
 	1 : {"level":level_1,"completed":false},
+	2 : {"level":level_2,"completed":false},
+	3 : {"level":level_3,"completed":false},
+	4 : {"level":level_4,"completed":false},
+	5 : {"level":level_5,"completed":false},
 }
 
 # Current loaded level
