@@ -5,6 +5,7 @@ extends KinematicBody2D
 # var b = "text"
 
 onready var _animated_sprite = $AnimatedSprite
+onready var _health_bar = $health_bar.value
 
 const GRAVITY = 9.8
 var velocity = Vector2(0,0)
@@ -26,9 +27,9 @@ signal player_died
 func _ready():
 	pass # Replace with function body.
 
-func Sword_position():
-	$Sword.scale.x = -1 
-	$Sword.scale.position = -$Sword.position.x
+func sword_position():
+	$sword.scale.x = -1 
+	$sword.scale.position = -$sword.position.x
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
@@ -144,10 +145,9 @@ func _on_AnimatedSprite_animation_finished():
 		player_is_attacking = false
 
 
-
-	
-
-
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	player_health -= 20 
-	print("hello world",player_health)
+	_health_bar -= 20
+	print("player health",player_health)
+	
+

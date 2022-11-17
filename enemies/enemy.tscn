@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://enemies/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/Ghost.png" type="Texture" id=2]
@@ -8,9 +8,6 @@ extents = Vector2( 32.5, 32 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 40.5, 21 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 40, 8.5 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 41.5, 32 )
@@ -46,19 +43,9 @@ collision_mask = 7
 position = Vector2( -2, 0 )
 shape = SubResource( 2 )
 
-[node name="AttackDetector" type="Area2D" parent="."]
-position = Vector2( -31, 1 )
-collision_layer = 8
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector"]
-modulate = Color( 0.0980392, 0.172549, 0.956863, 1 )
-position = Vector2( -41, -1 )
-shape = SubResource( 3 )
-
 [node name="hurt_box" type="Area2D" parent="."]
-collision_layer = 8
+collision_layer = 256
+collision_mask = 128
 
 [node name="hurtbox" type="CollisionShape2D" parent="hurt_box"]
 position = Vector2( 0, 1 )
@@ -73,6 +60,12 @@ modulate = Color( 1, 0.0313726, 0.0313726, 1 )
 position = Vector2( -92.5, -25.5 )
 shape = SubResource( 5 )
 
+[node name="Bob_health" type="ProgressBar" parent="."]
+margin_left = -42.0
+margin_top = -72.0
+margin_right = 43.0
+margin_bottom = -58.0
+value = 100.0
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
-[connection signal="body_entered" from="AttackDetector" to="." method="_on_AttackDetector_body_entered"]
-[connection signal="area_entered" from="hurt_box" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_box_area_entered"]

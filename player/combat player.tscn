@@ -12,6 +12,11 @@ radius = 17.6169
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walking",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "crouch",
@@ -20,11 +25,6 @@ animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "attack",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "walking",
 "speed": 5.0
 } ]
 
@@ -36,7 +36,7 @@ extents = Vector2( 35, 12 )
 [sub_resource type="RectangleShape2D" id=5]
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 10, 5.40032 )
+extents = Vector2( 16.6566, 5.20016 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 12, 19.5 )
@@ -51,7 +51,8 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-animation = "attack"
+animation = "walking"
+frame = 1
 playing = true
 
 [node name="crouchingshape" type="CollisionShape2D" parent="."]
@@ -75,9 +76,11 @@ shape = SubResource( 5 )
 
 [node name="sword" type="Area2D" parent="."]
 position = Vector2( 21.353, 0 )
+collision_layer = 128
+collision_mask = 256
 
 [node name="swordbox" type="CollisionShape2D" parent="sword"]
-position = Vector2( 0.33371, 0 )
+position = Vector2( 6.99035, -0.20016 )
 shape = SubResource( 6 )
 
 [node name="hurt_box" type="Area2D" parent="."]
@@ -87,6 +90,13 @@ collision_mask = 1024
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box"]
 position = Vector2( -4, -1.5 )
 shape = SubResource( 7 )
+
+[node name="health_bar" type="ProgressBar" parent="."]
+margin_left = -42.0
+margin_top = -57.0
+margin_right = 42.0
+margin_bottom = -41.0
+value = 100.0
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_shape_entered" from="floor" to="." method="_on_floor_body_shape_entered"]
