@@ -52,7 +52,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "walking"
-frame = 1
 playing = true
 
 [node name="crouchingshape" type="CollisionShape2D" parent="."]
@@ -97,6 +96,12 @@ margin_top = -57.0
 margin_right = 42.0
 margin_bottom = -41.0
 value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="damage_cooldown" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_shape_entered" from="floor" to="." method="_on_floor_body_shape_entered"]

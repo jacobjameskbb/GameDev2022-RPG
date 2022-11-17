@@ -5,7 +5,6 @@ extends KinematicBody2D
 # var b = "text"
 
 onready var _animated_sprite = $AnimatedSprite
-onready var _health_bar = $health_bar.value
 
 const GRAVITY = 9.8
 var velocity = Vector2(0,0)
@@ -146,8 +145,9 @@ func _on_AnimatedSprite_animation_finished():
 
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
-	player_health -= 20 
-	_health_bar -= 20
-	print("player health",player_health)
+	if $damage_cooldown.time_left <= 0:
+		player_health -= 20 
+		$health_bar.value = player_health
+		$damage_cooldown.start()
 	
 

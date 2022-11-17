@@ -12,7 +12,7 @@ var speed = 32 # pixels per second
 func _process(_delta):
 	move_character()
 	detect_turn_around()
-		
+	check_death()
 func move_character():
 	velocity.x = -speed if is_moving_left else speed
 	velocity.y += gravity
@@ -45,9 +45,12 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 	$Bob_health.value -= 20
 	print("enemy health",enemy_health)
 
-func death():
+func check_death():
 	if enemy_health <= 0:
-		get_tree().reload_current_scene()
+		# This will reload either the enemy scene or the level scene.
+		#get_tree().reload_current_scene()
+		# Instead, we can free the enemy from the scene:
+		self.queue_free()
 
 
 
