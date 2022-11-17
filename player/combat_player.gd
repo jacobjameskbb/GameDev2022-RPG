@@ -146,3 +146,8 @@ func _on_AnimatedSprite_animation_finished():
 
 
 	
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	player_health -= 20 
+	print("hello world",player_health)
