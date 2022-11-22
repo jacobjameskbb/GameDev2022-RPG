@@ -4,8 +4,8 @@
 [ext_resource path="res://assets/crouch0.png" type="Texture" id=2]
 [ext_resource path="res://player/combat_player.gd" type="Script" id=3]
 [ext_resource path="res://assets/pixil-frame-1.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/playerattack.png" type="Texture" id=5]
-[ext_resource path="res://assets/sprites/playeridle.png" type="Texture" id=7]
+[ext_resource path="res://assets/pixil-frame-4.png" type="Texture" id=5]
+[ext_resource path="res://assets/pixil-frame-6.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 17.6169
@@ -17,14 +17,14 @@ animations = [ {
 "name": "walking",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "crouch",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "attack",
 "speed": 5.0
 } ]
 
@@ -52,6 +52,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "walking"
+frame = 1
 playing = true
 
 [node name="crouchingshape" type="CollisionShape2D" parent="."]
