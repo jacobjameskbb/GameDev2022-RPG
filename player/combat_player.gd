@@ -30,6 +30,7 @@ func sword_position():
 	$sword.scale.x = -1 
 	$sword.scale.position = -$sword.position.x
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
 func _process(delta):
@@ -75,11 +76,15 @@ func _physics_process(delta):
 			velocity.x -= player_walk_speed
 			player_is_moving = true
 			$AnimatedSprite.scale.x = -1
+			$sword/swordbox.scale.x = -7
+			$sword/swordbox.scale.y = -1
 			
 		if Input.is_action_pressed("right"):
 			velocity.x += player_walk_speed
 			player_is_moving = true
 			$AnimatedSprite.scale.x = 1
+			$sword/swordbox.scale.x = 7
+			$sword/swordbox.scale.y = -1	
 			
 		if Input.is_action_just_released("left"):
 			velocity.x = 0

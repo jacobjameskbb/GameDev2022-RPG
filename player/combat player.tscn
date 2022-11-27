@@ -80,7 +80,7 @@ collision_layer = 128
 collision_mask = 256
 
 [node name="swordbox" type="CollisionShape2D" parent="sword"]
-position = Vector2( 6.99035, -0.20016 )
+position = Vector2( 7, -1 )
 shape = SubResource( 6 )
 
 [node name="hurt_box" type="Area2D" parent="."]
