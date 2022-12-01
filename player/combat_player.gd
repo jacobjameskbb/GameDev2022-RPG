@@ -18,14 +18,18 @@ var player_is_attacking = false
 var max_jump_height = 256 # Player max jump height; each 64 = 1 block. i.e 256 means player can jump four blocks
 var jump_height = 0
 export var player_number = 1
+var player_health = 100
+
+signal player_died
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-func Sword_position():
-	$Sword.scale.x = -1 
-	$Sword.scale.position = -$Sword.position.x
+func sword_position():
+	$sword.scale.x = -1 
+	$sword.scale.position = -$sword.position.x
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
@@ -37,6 +41,10 @@ func _process(delta):
 	
 # warning-ignore:unused_argument
 func _physics_process(delta):
+	
+	if player_health <= 0:
+			# Player Dies
+			emit_signal("player_died")
 	
 	if player_number == 1:
 		
@@ -62,16 +70,20 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("lmb"):
 			player_is_attacking = true
+			get_node("sword/swordbox").disabled = false
 		
 		if Input.is_action_pressed("left"):
 			velocity.x -= player_walk_speed
 			player_is_moving = true
 			$AnimatedSprite.scale.x = -1
+			$sword.position.x = -20
 			
 		if Input.is_action_pressed("right"):
 			velocity.x += player_walk_speed
 			player_is_moving = true
 			$AnimatedSprite.scale.x = 1
+			$sword.position.x = 20
+			
 			
 		if Input.is_action_just_released("left"):
 			velocity.x = 0
@@ -81,7 +93,7 @@ func _physics_process(delta):
 			velocity.x = 0
 			_animated_sprite.frame = 0
 			
-		if Input.is_action_pressed("jump"):
+		if Input.is_action_just_pressed("jump"):
 			if player_is_falling == false:
 				player_is_jumping = true
 				player_is_falling = true
@@ -134,3 +146,21 @@ func _on_ceiling_body_shape_entered(_body_id, _body, _body_shape, _local_shape):
 func _on_AnimatedSprite_animation_finished():
 	if player_is_attacking:
 		player_is_attacking = false
+		$sword/swordbox.disabled = true
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if $damage_cooldown.time_left <= 0:
+		player_health -= 20 
+		$health_bar.value = player_health
+		$damage_cooldown.start()
+
+
+func _on_void_detect_area_entered(area: Area2D) -> void:
+	player_health -= 100
+
+
+func _on_sword_body_entered(body):
+	if body.is_in_group("enemy"):
+		body.enemy_health -= 20 
+		body.get_node("healthbar").value -= 20

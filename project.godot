@@ -70,7 +70,7 @@ jump={
 }
 crouch={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 
@@ -80,6 +80,12 @@ crouch={
 2d_physics/layer_2="door"
 2d_physics/layer_3="npc"
 2d_physics/layer_4="enemy"
+2d_physics/layer_6="player_detect_void"
+2d_physics/layer_7="void"
+2d_physics/layer_8="sword"
+2d_physics/layer_9="enemy hurt"
+2d_physics/layer_10="player hurt"
+2d_physics/layer_11="enemy attack"
 
 [physics]
 

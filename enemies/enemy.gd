@@ -1,16 +1,16 @@
 extends KinematicBody2D
 
 var is_moving_left = true
-
-var gravity =  10 # check https://www.youtube.com/watch?v=jQKxOEbbirA for more detail
+var gravity =  10 
 var velocity = Vector2(0, 0)
+var enemy_health = 100
 
 var speed = 32 # pixels per second
 
 func _process(_delta):
 	move_character()
 	detect_turn_around()
-		
+	check_death()
 func move_character():
 	velocity.x = -speed if is_moving_left else speed
 	velocity.y += gravity
@@ -34,6 +34,18 @@ func _on_AttackDetector_body_entered(body):
 	#get_tree().reload_current_scene()
 	pass
 
-# warning-ignore:unused_argument
-func _on_PlayerDetector_body_entered(body: Node) -> void:
-	pass 
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	enemy_health -= 20 
+	$Bob_health.value -= 20
+	print("enemy health",enemy_health)
+
+func check_death():
+	if enemy_health <= 0:
+		# This will reload either the enemy scene or the level scene.
+		#get_tree().reload_current_scene()
+		# Instead, we can free the enemy from the scene:
+		self.queue_free()
+
+
+
+

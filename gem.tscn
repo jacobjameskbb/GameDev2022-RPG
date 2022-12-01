@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/red gem.png" type="Texture" id=1]
+[ext_resource path="res://gem.gd" type="Script" id=2]
+[ext_resource path="res://assets/Fonts/pirate.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/yellow gem.png" type="Texture" id=4]
+[ext_resource path="res://assets/green gem.png" type="Texture" id=5]
+[ext_resource path="res://assets/purple gem.png" type="Texture" id=6]
+[ext_resource path="res://assets/blue gem.png" type="Texture" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 44.008
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "green",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "purple",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "yellow",
+"speed": 5.0
+} ]
+
+[node name="gem" type="Area2D"]
+collision_layer = 16
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -130.0
+margin_top = -16.5
+margin_right = 130.0
+margin_bottom = 16.5
+custom_fonts/font = ExtResource( 3 )
+text = "GEM ACQUIRED!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 2 )
+animation = "green"
+
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
