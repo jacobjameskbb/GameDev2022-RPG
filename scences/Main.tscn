@@ -24,7 +24,9 @@ script = ExtResource( 2 )
 
 [node name="overworld" parent="World Manager" instance=ExtResource( 8 )]
 
-[node name="main player" parent="World Manager" groups=["player"] instance=ExtResource( 5 )]
+[node name="main player" parent="World Manager" groups=[
+"player",
+] instance=ExtResource( 5 )]
 position = Vector2( 518, 273 )
 
 [node name="area_cooldown" type="Timer" parent="World Manager"]

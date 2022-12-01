@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lvl 2 song.mp3-2cd553826aee4905e610484d6069ac5d.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound/lvl 2 song.mp3"
+dest_files=[ "res://.import/lvl 2 song.mp3-2cd553826aee4905e610484d6069ac5d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

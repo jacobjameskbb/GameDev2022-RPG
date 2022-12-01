@@ -76,15 +76,14 @@ func _physics_process(delta):
 			velocity.x -= player_walk_speed
 			player_is_moving = true
 			$AnimatedSprite.scale.x = -1
-			$sword/swordbox.scale.x = -7
-			$sword/swordbox.scale.y = -1
+			$sword.position.x = -20
 			
 		if Input.is_action_pressed("right"):
 			velocity.x += player_walk_speed
 			player_is_moving = true
 			$AnimatedSprite.scale.x = 1
-			$sword/swordbox.scale.x = 7
-			$sword/swordbox.scale.y = -1	
+			$sword.position.x = 20
+			
 			
 		if Input.is_action_just_released("left"):
 			velocity.x = 0
@@ -147,6 +146,7 @@ func _on_ceiling_body_shape_entered(_body_id, _body, _body_shape, _local_shape):
 func _on_AnimatedSprite_animation_finished():
 	if player_is_attacking:
 		player_is_attacking = false
+		$sword/swordbox.disabled = true
 
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
@@ -154,12 +154,13 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 		player_health -= 20 
 		$health_bar.value = player_health
 		$damage_cooldown.start()
-	
-
-
-
-
 
 
 func _on_void_detect_area_entered(area: Area2D) -> void:
 	player_health -= 100
+
+
+func _on_sword_body_entered(body):
+	if body.is_in_group("enemy"):
+		body.enemy_health -= 20 
+		body.get_node("healthbar").value -= 20

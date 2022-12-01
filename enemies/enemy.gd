@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-onready var _bob_health = $Bob_health.value
-
 var is_moving_left = true
 var gravity =  10 
 var velocity = Vector2(0, 0)
@@ -35,10 +33,6 @@ func _on_AttackDetector_body_entered(body):
 # warning-ignore:return_value_discarded
 	#get_tree().reload_current_scene()
 	pass
-
-# warning-ignore:unused_argument
-func _on_PlayerDetector_body_entered(body):
-	pass 
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	enemy_health -= 20 
