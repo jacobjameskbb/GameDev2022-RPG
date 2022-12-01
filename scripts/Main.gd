@@ -9,6 +9,9 @@ extends Node
 var in_combat = false
 var _world_save = NAN
 
+var GEM_NUMBER = 5
+var current_gems = 0
+
 func _process(_delta):
 	# If the game is in combat, the camera follows the combat player
 	if in_combat:
@@ -33,10 +36,17 @@ func _on_World_Manager_start_combat(combat_number):
 
 func _on_Combat_Manager_finish_combat():
 	add_child(_world_save)
+	current_gems += 1
+	print(current_gems)
 	$"World Manager".spawn_gem($"Combat Manager".current_level.level_number)
 	$"Combat Manager".visible = false
 	in_combat = false
-	$"Music Manager".play_song("overworld")
+	
+	if current_gems == 5:
+		print('Victory!')
+		end_game()
+	else:
+		$"Music Manager".play_song("overworld")
 
 
 func _on_Combat_Manager_player_died():
@@ -45,3 +55,7 @@ func _on_Combat_Manager_player_died():
 	in_combat = false
 	$"Music Manager".play_song("overworld")
 
+func end_game():
+	$"World Manager".visible = false
+	$"Combat Manager".visible = false
+	$"Dialogue Manager".visible = false
