@@ -156,3 +156,10 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 		$damage_cooldown.start()
 	
 
+
+
+
+
+
+func _on_void_detect_area_entered(area: Area2D) -> void:
+	player_health -= 100
