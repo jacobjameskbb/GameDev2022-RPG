@@ -11,6 +11,11 @@ var time = 0
 func _process(delta):
 	self.position = get_viewport_rect().size / 2
 	
+	if $TileMap.position.x <= -520:
+		$TileMap.position.x = 0
+	
+	$TileMap.position.x -= delta * 100
+	
 	$player.rotation += delta
 	time += delta
 
