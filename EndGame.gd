@@ -24,3 +24,7 @@ func _process(delta):
 	$gem3.position = Vector2(200 * cos(6*PI/5 + time + PI/2), -200 * sin(6*PI/5 + time + PI/2))
 	$gem4.position = Vector2(200 * cos(8*PI/5 + time + PI/2), -200 * sin(8*PI/5 + time + PI/2))
 	$gem5.position = Vector2(200 * cos(0 + time + PI/2), - 200 * sin(0 + time + PI/2))
+
+
+func _on_Button_pressed():
+	get_tree().quit()

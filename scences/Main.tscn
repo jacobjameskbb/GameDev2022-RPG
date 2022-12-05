@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://UI, dialogue/Menu Manager.gd" type="Script" id=1]
 [ext_resource path="res://scripts/World Manager.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scences/world1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scences/Music Manager.gd" type="Script" id=9]
 [ext_resource path="res://assets/Fonts/pirate.tres" type="DynamicFont" id=10]
+[ext_resource path="res://scences/EndGame.tscn" type="PackedScene" id=11]
 
 [node name="Main" type="Node"]
 pause_mode = 2
@@ -24,7 +25,9 @@ script = ExtResource( 2 )
 
 [node name="overworld" parent="World Manager" instance=ExtResource( 8 )]
 
-[node name="main player" parent="World Manager" groups=["player"] instance=ExtResource( 5 )]
+[node name="main player" parent="World Manager" groups=[
+"player",
+] instance=ExtResource( 5 )]
 position = Vector2( 518, 273 )
 
 [node name="area_cooldown" type="Timer" parent="World Manager"]
@@ -99,6 +102,11 @@ __meta__ = {
 script = ExtResource( 9 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Music Manager"]
+
+[node name="Endgame Manager" type="Node2D" parent="."]
+visible = false
+
+[node name="EndGame" parent="Endgame Manager" instance=ExtResource( 11 )]
 
 [connection signal="start_combat" from="World Manager" to="." method="_on_World_Manager_start_combat"]
 [connection signal="timeout" from="World Manager/area_cooldown" to="World Manager" method="_on_area_cooldown_timeout"]

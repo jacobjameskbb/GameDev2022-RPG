@@ -59,3 +59,5 @@ func end_game():
 	$"World Manager".visible = false
 	$"Combat Manager".visible = false
 	$"Dialogue Manager".visible = false
+	$"Endgame Manager".visible = true
+	$"Endgame Manager/EndGame/EndCam".current = true
