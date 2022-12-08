@@ -3,7 +3,6 @@ extends KinematicBody2D
 var is_moving_left = true
 var velocity = Vector2(0, 0)
 var enemy_health = 100
-
 var speed = 64 # pixels per second
 
 func _process(_delta):

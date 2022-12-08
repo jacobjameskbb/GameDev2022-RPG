@@ -6,6 +6,8 @@ var velocity = Vector2(0, 0)
 var enemy_health = 100
 var speed = 32 # pixels per second
 var motion = Vector2.ZERO
+var direction = position
+var player_position = position 
 
 func _process(_delta):
 	move_character()
@@ -47,11 +49,10 @@ func _on_detect_player_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		print("bob")
 		var player_position = body.position
-		motion += position.direction_to(player_position)
-		motion = move_and_slide(motion)
-
-
 		
+func _processes(delta: float):
+	direction = (player_position - position).normalized()
+	move_and_slide(direction*speed)
 		
 		
 		

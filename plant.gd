@@ -1,7 +1,9 @@
 extends StaticBody2D
 
+
 onready var bullet = preload("res://plant_bullet.tscn")
 var player_position = Vector2.ZERO
+var enemy_health = 100
 #func fire():
 	#bullet_instance.position = player_position
 	#bullet_instance.rotation_degrees = rotation_degrees
@@ -22,6 +24,6 @@ func _on_Timer_timeout() -> void:
 	add_child(current_bullet)
 	print("muhahahahahaha")
 
-
-
-
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	enemy_health -= 10
+	print("enemy health",enemy_health)
