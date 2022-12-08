@@ -36,7 +36,7 @@ extents = Vector2( 16.7515, 12 )
 [sub_resource type="RectangleShape2D" id=5]
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 16.6566, 5.20016 )
+extents = Vector2( 24.8283, 5.20016 )
 
 [sub_resource type="CapsuleShape2D" id=9]
 radius = 19.2318
@@ -45,7 +45,7 @@ height = 20.4383
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 12.5, 2.5 )
 
-[node name="combat player" type="KinematicBody2D"]
+[node name="combat player" type="KinematicBody2D" groups=["player"]]
 collision_mask = 30
 script = ExtResource( 3 )
 
@@ -84,12 +84,13 @@ collision_layer = 128
 collision_mask = 264
 
 [node name="swordbox" type="CollisionShape2D" parent="sword"]
+position = Vector2( 8.1717, 0 )
 shape = SubResource( 6 )
 disabled = true
 
 [node name="hurt_box" type="Area2D" parent="."]
 position = Vector2( 0, -3 )
-collision_layer = 513
+collision_layer = 512
 collision_mask = 1024
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box"]

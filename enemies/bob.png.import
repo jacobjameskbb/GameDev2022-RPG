@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/face of doom.png-4b57671b61e7a1c045f01746ba8de58f.stex"
+path="res://.import/bob.png-05b73c43ecaa9e9286c1615b5e931026.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/face of doom.png"
-dest_files=[ "res://.import/face of doom.png-4b57671b61e7a1c045f01746ba8de58f.stex" ]
+source_file="res://enemies/bob.png"
+dest_files=[ "res://.import/bob.png-05b73c43ecaa9e9286c1615b5e931026.stex" ]
 
 [params]
 

@@ -22,6 +22,10 @@ Save="*res://scripts/save.gd"
 
 enabled=PoolStringArray(  )
 
+[global]
+
+groups=true
+
 [input]
 
 up={

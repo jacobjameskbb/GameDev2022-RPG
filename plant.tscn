@@ -7,14 +7,14 @@
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "attack",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "attack",
 "speed": 5.0
 } ]
 
@@ -36,16 +36,17 @@ cast_to = Vector2( -200, 0 )
 polygon = PoolVector2Array( -99, -69, -100, -28, -70, -25, -71, -20, -88, -14, -91, -6, -78, 13, -60, 22, -37, 29, -1, 30, 25, 20, 45, 6, 54, -8, 69, 4, 74, 21, 75, 34, 68, 40, 41, 61, 30, 65, 3, 70, -13, 78, -31, 90, -43, 105, -52, 121, -58, 130, -71, 123, -85, 116, -116, 116, -142, 116, -158, 130, -160, 137, -151, 144, -135, 145, -123, 149, -110, 149, -104, 149, -97, 156, -96, 172, 1, 172, 20, 160, 30, 155, 102, 154, 99, 141, 87, 134, 22, 134, -4, 138, -28, 145, -29, 136, 1, 112, 2, 100, 38, 101, 65, 84, 118, 46, 118, -29, 94, -57, 74, -58, 10, -120, -19, -126, -27, -126, -66, -108, -87, -92, -87, -82 )
 
 [node name="plant_bullet" parent="." instance=ExtResource( 4 )]
-position = Vector2( -3, 680 )
+position = Vector2( -141, -41 )
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 4
+collision_layer = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -6, 4 )
 shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.686
+wait_time = 2.451
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
