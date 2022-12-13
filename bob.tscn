@@ -7,13 +7,13 @@
 radius = 36.7185
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 38.5, 53 )
+extents = Vector2( 39.5, 37 )
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 162.003
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 26, 30.5 )
+[sub_resource type="CircleShape2D" id=19]
+radius = 37.1214
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
@@ -90,12 +90,12 @@ script = ExtResource( 2 )
 position = Vector2( -0.5, 0 )
 shape = SubResource( 18 )
 
-[node name="AttackDetector" type="Area2D" parent="."]
-collision_layer = 264
+[node name="hurt_box" type="Area2D" parent="."]
+collision_layer = 256
 collision_mask = 128
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector"]
-position = Vector2( -0.5, -2 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box"]
+position = Vector2( 0.5, -1 )
 shape = SubResource( 2 )
 
 [node name="detect_player" type="Area2D" parent="."]
@@ -111,15 +111,26 @@ cast_to = Vector2( -200, 5 )
 collision_mask = 16
 
 [node name="sword" type="Area2D" parent="."]
-collision_layer = 8
+collision_layer = 1032
+collision_mask = 513
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sword"]
-position = Vector2( -91, -11.5 )
-shape = SubResource( 4 )
+position = Vector2( 0, -1 )
+shape = SubResource( 19 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 1, 0 )
+position = Vector2( 3, 0 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 17 )
-frame = 1
+frame = 6
 playing = true
+
+[node name="health_bar" type="ProgressBar" parent="."]
+margin_left = -23.0
+margin_top = -73.0
+margin_right = 23.0
+margin_bottom = -59.0
+value = 100.0
+
+[connection signal="area_exited" from="hurt_box" to="." method="_on_hurt_box_area_exited"]
+[connection signal="body_entered" from="detect_player" to="." method="_on_detect_player_body_entered"]

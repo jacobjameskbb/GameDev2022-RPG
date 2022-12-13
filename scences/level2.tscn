@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player/combat player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://plant.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/icon.png" type="Texture" id=3]
 [ext_resource path="res://gem.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scences/level.gd" type="Script" id=5]
@@ -47,15 +48,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="StaticBody2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 476, -119 )
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
 collision_layer = 16
 collision_mask = 15
 format = 1
-tile_data = PoolIntArray( -393217, 0, 0, -458752, 0, 0, -458751, 0, 0, -393215, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -196609, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, 65534, 0, 0, 1, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0 )
+tile_data = PoolIntArray( -393217, 0, 0, -458752, 0, 0, -458751, 0, 0, -393215, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -196609, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -65517, 0, 0, 65534, 0, 0, 19, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65555, 0, 0, 131073, 0, 0, 131091, 0, 0, 196609, 0, 0, 196627, 0, 0, 262145, 0, 0, 262163, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0 )
 
 [node name="gem" parent="." instance=ExtResource( 4 )]
-position = Vector2( -0.0786743, -87.5521 )
+position = Vector2( 49, -505 )
 gem_color = "red"
 
 [node name="level finish timer" type="Timer" parent="."]

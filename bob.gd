@@ -25,20 +25,17 @@ func hit():
 func end_of_hit():
 	$AttackDetector.monitoring = false
 	
-# warning-ignore:unused_argument
-func _on_AttackDetector_body_entered(body):
-# warning-ignore:return_value_discarded
-	#get_tree().reload_current_scene()
-	pass
-
-func _on_hurt_box_area_entered(area: Area2D) -> void:
+func _on_hurt_box_area_exited(area: Area2D) -> void:
 	enemy_health -= 20 
-	$Bob_health.value -= 20
+	$health_bar.value -= 20
 	print("enemy health",enemy_health)
 
+	
 func check_death():
 	if enemy_health <= 0:
-		# This will reload either the enemy scene or the level scene.
-		#get_tree().reload_current_scene()
-		# Instead, we can free the enemy from the scene:
 		self.queue_free()
+
+
+
+func _on_detect_player_body_entered(body: Node) -> void:
+	pass # Replace with function body.
