@@ -23,14 +23,14 @@ animations = [ {
 "name": "walking",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "crouch",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "crouch",
 "speed": 5.0
 } ]
 
@@ -53,9 +53,7 @@ height = 20.4383
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 12.5, 2.5 )
 
-[node name="combat player" type="KinematicBody2D" groups=[
-"player",
-]]
+[node name="combat player" type="KinematicBody2D" groups=["player"]]
 collision_mask = 30
 script = ExtResource( 3 )
 
@@ -66,7 +64,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "walking"
-frame = 5
+frame = 2
 speed_scale = 1.25
 playing = true
 
@@ -92,7 +90,7 @@ shape = SubResource( 5 )
 [node name="sword" type="Area2D" parent="."]
 position = Vector2( 20, -3 )
 collision_layer = 128
-collision_mask = 264
+collision_mask = 256
 
 [node name="swordbox" type="CollisionShape2D" parent="sword"]
 position = Vector2( 8.1717, 0 )

@@ -335,7 +335,7 @@ collision_layer = 64
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="void"]
-position = Vector2( 7312, 14592 )
+position = Vector2( 7296, 14440 )
 shape = SubResource( 7 )
 
 [node name="StaticBody2D41" parent="." instance=ExtResource( 13 )]
