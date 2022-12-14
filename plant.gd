@@ -2,7 +2,7 @@ extends StaticBody2D
 
 
 onready var bullet = preload("res://plant_bullet.tscn")
-var player_position = Vector2.ZERO
+var player = NAN
 var enemy_health = 100
 
 #func fire():
@@ -16,18 +16,16 @@ func _process(_delta):
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
-		var player_position = body.position
+		player = body
 		$Timer.start()
-		print("plant see uuuuuuuuuu")
 
 func _on_Timer_timeout() -> void:
 	var current_bullet = bullet.instance()
 	#current_bullet.facing = 'left'
-	print('plab ',position)
-	current_bullet.direction = self.position - player_position
-	current_bullet.position = self.position - Vector2(200,0)
+	current_bullet.direction = Vector2(-(self.position.x - player.position.x), -(self.position.y - player.position.y)).normalized()
+	current_bullet.position = $"bullet spawn position".position
 	add_child(current_bullet)
-	print("muhahahahahaha: ", current_bullet.position)
+	print("buller direction: ",current_bullet.direction)
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	enemy_health -= 10

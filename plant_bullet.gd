@@ -6,5 +6,4 @@ var is_moving_left = true
 
 func _process(delta: float) -> void:
 	self.position += bullet_speed * direction
-	#print(position)
 	pass
