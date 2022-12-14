@@ -44,11 +44,9 @@ margin_top = 79.37
 margin_right = -56.8314
 margin_bottom = 119.37
 color = Color( 0.196078, 0.752941, 0.34902, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 2 )]
+visible = false
 position = Vector2( 476, -119 )
 
 [node name="TileMap" type="TileMap" parent="."]

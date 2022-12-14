@@ -37,7 +37,7 @@ func _on_AttackDetector_body_entered(body):
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	enemy_health -= 20 
-	$Bob_health.value -= 20
+	$healthbar.value -= 20
 	print("enemy health",enemy_health)
 
 func check_death():
