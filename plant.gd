@@ -1,7 +1,7 @@
 extends StaticBody2D
 
-
 onready var bullet = preload("res://plant_bullet.tscn")
+onready var stop = $stop
 var player = NAN
 var enemy_health = 100
 
@@ -20,13 +20,18 @@ func _on_Area2D_body_entered(body: Node) -> void:
 		$Timer.start()
 
 func _on_Timer_timeout() -> void:
+	$AnimatedSprite.frame = 1
 	var current_bullet = bullet.instance()
 	#current_bullet.facing = 'left'
 	current_bullet.direction = Vector2(-(self.position.x - player.position.x), -(self.position.y - player.position.y)).normalized()
 	current_bullet.position = $"bullet spawn position".position
 	add_child(current_bullet)
 	print("buller direction: ",current_bullet.direction)
-
+	#$stop.start()
+	#if stop.time_left:
+	#	print("your mom")
+	#	$AnimatedSprite.frame = 0
+	
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	enemy_health -= 10
 	print("enemy health",enemy_health)
@@ -35,3 +40,4 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 func check_death():
 	if enemy_health <= 0:
 		self.queue_free()
+
