@@ -126,7 +126,7 @@ shape = SubResource( 5 )
 position = Vector2( 3, 0 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 18 )
-frame = 8
+frame = 10
 playing = true
 
 [node name="health_bar" type="ProgressBar" parent="."]
